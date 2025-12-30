@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sum the String</title>
+    <style>
+      body { font-family: system-ui, -apple-system, Arial, sans-serif; padding: 24px; }
+      label, input, button { font-size: 16px; }
+      .result { margin-top: 16px; padding: 12px; border: 1px solid #ddd; background:#f9f9f9; }
+    </style>
+  </head>
+  <body>
+    <h1>Sum the String</h1>
+
+    <label for="inputStr1">Enter string:</label>
+    <input id="inputStr1" type="text" placeholder="Type a string with numbers" style="width: 60%;" />
+    <button id="sumBtn1">Get Sum</button>
+
+    <div id="result1" class="result" aria-live="polite">Result will appear here</div>
+
+
+    <h1>Capitalize Sentence</h1>
+
+    <label for="inputStr2">Enter sentence:</label>
+    <input id="inputStr2" type="text" placeholder="Type a sentence to capitalize" style="width: 60%;" />
+    <button id="sumBtn2">Capitalize</button>
+
+    <div id="result2" class="result" aria-live="polite">Result will appear here</div>
+
+    <!-- Include the user's JS which defines `stringSum` -->
+    <script src="MyRegex.js"></script>
+
+    <script>
+      // Wire the button to call stringSum and display the result
+      document.getElementById('sumBtn1').addEventListener('click', function () {
+        const val = document.getElementById('inputStr1').value;
+        try {
+          const result = stringSum(val);
+          document.getElementById('result1').textContent = String(result);
+        } catch (err) {
+          document.getElementById('result1').textContent = 'Error: ' + err.message;
+        }
+      });
+
+      document.getElementById('sumBtn2').addEventListener('click', function () {
+        const val = document.getElementById('inputStr2').value;
+        try {
+          const result = capitalizeWords(val);
+          document.getElementById('result2').textContent = String(result);
+        } catch (err) {
+          document.getElementById('result2').textContent = 'Error: ' + err.message;
+        }
+      });
+    </script>
+  </body>
+</html>
