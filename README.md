@@ -24,3 +24,29 @@ Here two Regular expressions are used to handle the logics:
 | `/\b\w/g` | `\b` | Word boundary (start of word) |
 | | `\w` | Matches word character [a-zA-Z0-9_] |
 | | `g` | Global flag - find all matches |
+
+
+**Regex3** - `str.replace(/\s+/g, '_').replace(/[A-Z]/g, letter => \${letter.toLowerCase()}\).replace(/^_+/, '')`
+
+| Regex Pattern | Component | Explanation |
+|---|---|---|
+| `/\s+/g` | `\s` | Matches any whitespace character (spaces, tabs, etc.) |
+| | `+` | Matches one or more of preceding character |
+| | `g` | Global flag - find all matches |
+| `/[A-Z]/g` | `[A-Z]` | Matches any uppercase letter |
+| | `g` | Global flag - find all matches |
+| `/^_+/` | `^` | Asserts position at the start of the string |
+| | `_` | Matches underscore character |
+| | `+` | Matches one or more of preceding character |
+
+
+**Regex4** - `str.replace(/\s+/g, '_').replace(/-/g, '_').replace(/[A-Z]/g, letter => _${letter}).replace(/^_+/, '').toUpperCase()`
+
+| Pattern                          | Description                                                                                     |
+|----------------------------------|-------------------------------------------------------------------------------------------------|
+| `\s+`                            | Matches one or more whitespace characters (spaces, tabs, etc.) and replaces them with an underscore (`_`). |
+| `-`                              | Matches hyphens and replaces them with an underscore (`_`).                                   |
+| `[A-Z]`                          | Matches any uppercase letter. The replacement function transforms it to `_` followed by the letter itself. |
+| `letter => _${letter}`          | A function that takes the matched uppercase letter and prepends it with an underscore (`_`).   |
+| `^_+`                            | Matches one or more underscores at the start of the string and removes them.                  |
+| `.toUpperCase()`                | Converts the entire resulting string to uppercase.                                            |

@@ -29,6 +29,20 @@
 
     <div id="result2" class="result" aria-live="polite">Result will appear here</div>
 
+    <h1>Camel to Snake case</h1>
+
+    <label for="inputStr3">Enter sentence:</label>
+    <input id="inputStr3" type="text" placeholder="Type a sentence to convert to snake case" style="width: 60%;" />
+    <button id="sumBtn3">Convert to Snake Case</button>
+
+    <div id="result3" class="result" aria-live="polite">Result will appear here</div>
+
+    <h1>Screaming Snake Case</h1>
+
+    <label for="inputStr4">Enter sentence:</label>
+    <input id="inputStr4" type="text" placeholder="Type a sentence to convert to screaming snake case" style="width: 60%;" />
+    <button id="sumBtn4">Convert to Screaming Snake Case</button>
+    <div id="result4" class="result" aria-live="polite">Result will appear here</div>
     <!-- Include the user's JS which defines `stringSum` -->
     <script src="MyRegex.js"></script>
 
@@ -51,6 +65,26 @@
           document.getElementById('result2').textContent = String(result);
         } catch (err) {
           document.getElementById('result2').textContent = 'Error: ' + err.message;
+        }
+      });
+
+      document.getElementById('sumBtn3').addEventListener('click', function () {
+        const val = document.getElementById('inputStr3').value;
+        try {
+          const result = toSnakeCase(val);
+          document.getElementById('result3').textContent = String(result);
+        } catch (err) {
+          document.getElementById('result3').textContent = 'Error: ' + err.message;
+        }
+      });
+
+       document.getElementById('sumBtn4').addEventListener('click', function () {
+        const val = document.getElementById('inputStr4').value;
+        try {
+          const result = ScreamingSnakeCase(val);
+          document.getElementById('result4').textContent = String(result);
+        } catch (err) {
+          document.getElementById('result4').textContent = 'Error: ' + err.message;
         }
       });
     </script>

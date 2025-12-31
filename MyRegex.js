@@ -22,3 +22,21 @@ function stringSum(str) {
 function capitalizeWords(str) {
   return str.replace(/\b\w/g, char => char.toUpperCase()).toLowerCase().replace(/\b\w/g, char => char.toUpperCase());
 }
+
+// function that converts a camelCase string to snake_case
+function toSnakeCase(str) {
+  return str
+    .replace(/\s+/g, '_') // Replace spaces with underscores
+    .replace(/[A-Z]/g, letter => `_${letter.toLowerCase()}`) // Add underscore before uppercase letters and convert to lowercase
+    .replace(/^_+/, ''); // Remove leading underscores if any
+}
+
+// function that converts a string to SCREAMING_SNAKE_CASE
+function ScreamingSnakeCase(str) {
+  return str
+    .replace(/\s+/g, '_') // Replace spaces with underscores
+    .replace(/-/g, '_') // Replace hyphens with underscores
+    .replace(/[A-Z]/g, letter => `_${letter}`) // Add underscore before uppercase letters
+    .replace(/^_+/, '') // Remove leading underscores if any
+    .toUpperCase(); // Convert all letters to uppercase
+}
