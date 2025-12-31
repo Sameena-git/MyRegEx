@@ -40,3 +40,8 @@ function ScreamingSnakeCase(str) {
     .replace(/^_+/, '') // Remove leading underscores if any
     .toUpperCase(); // Convert all letters to uppercase
 }
+
+// function that converts markdown italic syntax to HTML <i> tags
+function MarkdownItalicParser(str) {
+  return str.replace(/[*_](\S(?:.*?\S)?)[*_]/g, '<i>$1</i>');
+}

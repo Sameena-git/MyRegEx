@@ -50,3 +50,22 @@ Here two Regular expressions are used to handle the logics:
 | `letter => _${letter}`          | A function that takes the matched uppercase letter and prepends it with an underscore (`_`).   |
 | `^_+`                            | Matches one or more underscores at the start of the string and removes them.                  |
 | `.toUpperCase()`                | Converts the entire resulting string to uppercase.                                            |
+
+**Regex5** - `str.replace(/[*_](\S(?:.*?\S)?)[*_]/g, '<i>$1</i>')`
+
+| Pattern | Meaning |
+|---------|---------|
+| `/` | Regex delimiter (start) |
+| `[*_]` | Match either `*` or `_` (opening delimiter) |
+| `(\S(?:.*?\S)?)` | Capture group for italic text: |
+| `\S` | Non-whitespace character (required start) |
+| `(?:.*?\S)?` | Optional non-capturing group: any characters (lazy) followed by non-whitespace (required end) |
+| `[*_]` | Match either `*` or `_` (closing delimiter, must match opening) |
+| `/g` | Global flag (replace all matches) |
+| `$1` | Replace with captured group (the italic text) |
+| `<i>$1</i>` | Replacement: wrap text in HTML italic tags |
+
+**Example matches:**
+- `*hello*` → `<hello>`
+- `_world_` → `<i>world</i>`
+- `*foo bar*` → `<i>foo bar</i>`

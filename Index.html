@@ -43,6 +43,14 @@
     <input id="inputStr4" type="text" placeholder="Type a sentence to convert to screaming snake case" style="width: 60%;" />
     <button id="sumBtn4">Convert to Screaming Snake Case</button>
     <div id="result4" class="result" aria-live="polite">Result will appear here</div>
+
+    <h1>Markdown Italic Parser</h1>
+
+    <label for="inputStr5">Enter sentence:</label>
+    <input id="inputStr5" type="text" placeholder="Type a sentence to convert to screaming snake case" style="width: 60%;" />
+    <button id="sumBtn5">Convert to Screaming Snake Case</button>
+    <div id="result5" class="result" aria-live="polite">Result will appear here</div>
+
     <!-- Include the user's JS which defines `stringSum` -->
     <script src="MyRegex.js"></script>
 
@@ -87,6 +95,17 @@
           document.getElementById('result4').textContent = 'Error: ' + err.message;
         }
       });
+
+      document.getElementById('sumBtn5').addEventListener('click', function () {
+        const val = document.getElementById('inputStr5').value;
+        try {
+          const result = MarkdownItalicParser(val);
+          document.getElementById('result5').textContent = String(result);
+        } catch (err) {
+          document.getElementById('result5').textContent = 'Error: ' + err.message;
+        }
+      });
+
     </script>
   </body>
 </html>
